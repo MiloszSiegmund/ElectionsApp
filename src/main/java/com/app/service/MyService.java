@@ -28,7 +28,7 @@ public interface MyService {
 
     void saveConstituency(Constituency constituency);
     void modifyConstituency(Constituency constituency);
-    void deleteConstituency(Constituency constituency);
+    void deleteConstituency(Long id);
     Optional<Constituency> getConstituencyByIdl(Long id);
     List<ConstituencyDto> getAllConstituencies();
 

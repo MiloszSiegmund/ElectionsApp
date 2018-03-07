@@ -63,26 +63,35 @@ public class MyServiceImpl implements MyService {
     @Override
     public List<CandidateDto> getAllCandidates() {
         return null;
+
     }
 
     @Override
     public void saveCity(City city) {
+        cityDao.save(city);
 
     }
 
     @Override
     public void modifyCity(City city) {
+        cityDao.save(city);
 
     }
 
     @Override
     public void deleteCity(Long id) {
+        Candidate candidate = candidateDao.getOne(id);
+        candidateDao.delete(candidate);
 
     }
 
     @Override
     public Optional<City> getCityById(Long id) {
-        return Optional.empty();
+        City city = cityDao.getOne(id);
+        if (city.getName() != null) {
+            city.getName().length();
+        }
+        return Optional.ofNullable(city);
     }
 
     @Override
@@ -92,22 +101,29 @@ public class MyServiceImpl implements MyService {
 
     @Override
     public void saveConstituency(Constituency constituency) {
+        constituencyDao.save(constituency);
 
     }
 
     @Override
     public void modifyConstituency(Constituency constituency) {
-
+        constituencyDao.save(constituency);
     }
 
     @Override
-    public void deleteConstituency(Constituency constituency) {
+    public void deleteConstituency(Long id) {
+        Constituency constituency = constituencyDao.getOne(id);
+        constituencyDao.delete(constituency);
 
     }
 
     @Override
     public Optional<Constituency> getConstituencyByIdl(Long id) {
-        return Optional.empty();
+        Constituency constituency = constituencyDao.getOne(id);
+        if (constituency.getName() != null) {
+            constituency.getName().length();
+        }
+        return Optional.ofNullable(constituency);
     }
 
     @Override
@@ -117,22 +133,28 @@ public class MyServiceImpl implements MyService {
 
     @Override
     public void saveVoter(Voter voter) {
+        voterDao.save(voter);
 
     }
 
     @Override
     public void modifyVoter(Voter voter) {
-
+        voterDao.save(voter);
     }
 
     @Override
     public void deleteVoter(Long id) {
-
+        Voter voter = voterDao.getOne(id);
+        voterDao.delete(voter);
     }
 
     @Override
     public Optional<Voter> getVoterById(Long id) {
-        return Optional.empty();
+        Voter voter = voterDao.getOne(id);
+        if (voter.getAge() != null) {
+            voter.getAge().byteValue();
+        }
+        return Optional.ofNullable(voter);
     }
 
     @Override
